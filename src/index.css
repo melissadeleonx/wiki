@@ -1,0 +1,71 @@
+#apod-container {
+    overflow: hidden; 
+  }
+  
+  .img-fluid {
+    object-fit: cover;
+  }
+  
+  .description {
+    border-top: 1px solid #fff;
+  }
+
+.morph-button {
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.morph-button:hover {
+    color: #009900;
+}
+
+.h1-index {
+  font-size: 3.5rem;
+  font-weight: bold; 
+}
+
+.h1-index {
+  font-size: 2.5rem;
+  font-weight: bold; 
+}
+
+.centered-text {
+  max-width: 800px; 
+  margin: 0 auto; 
+}
+.card {
+  border: 1px solid #000000; 
+  border-radius: 0.25rem; 
+}
+
+.card:hover {
+  border: 2px solid #004400; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
+  transition: transform 0.3s ease; 
+}
+
+.card-img-top {
+  height: 250px; 
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  overflow: hidden; 
+  background-color: white;
+}
+
+.card-img-top img {
+  max-height: 300px; 
+  max-width: 300px; 
+  height: auto; 
+  width: auto; 
+}
+
+.card-body {
+  border-radius: 0.5rem; 
+  padding: 2rem; 
+}
+

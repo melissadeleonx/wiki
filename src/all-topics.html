@@ -1,0 +1,291 @@
+<!-- Connect the files inside the static folder -->
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="icon" href="{% static 'encyclopedia/images/favicon.png' %}" type="image/png">
+
+          <!-- Primary Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %} - Science Wiki</title>
+        <meta name="title" content="{{ og_title }}">
+        <meta name="description" content="{{ og_description }}">
+        <meta name="keywords" content="science research, discover science, science wiki">
+        <meta name="author" content="Melissa De Leon">
+        <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ og_url }}">
+        <meta property="og:title" content="{{ og_title }}">
+        <meta property="og:description" content="{{ og_description }}">
+        <meta property="og:image" content="{% static 'encyclopedia/images/space.png' %}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:site_name" content="Science Wiki">
+        <meta property="og:locale" content="en_US">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="{{ og_url }}">
+        <meta property="twitter:title" content="{{ og_title }}">
+        <meta property="twitter:description" content="{{ og_description }}">
+        <meta property="twitter:image" content="{% static 'encyclopedia/images/space.png' %}">
+        <meta property="twitter:site" content="@melissadeleonx">
+        <meta property="twitter:creator" content="@melissadeleonx">
+
+        <!-- General SEO -->
+ì       <link rel="canonical" href="https://sciencewiki-dba83ffdf24f.herokuapp.com/">
+
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
+        <script src="{% static 'encyclopedia/cookie.js' %}"></script>
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+      <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="check2" viewBox="0 0 16 16">
+          <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+          <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+          <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+          <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </symbol>
+      </svg>
+  
+      <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+                id="bd-theme"
+                type="button"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                aria-label="Toggle theme (auto)">
+          <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+          <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+              <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+              Light
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+              <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+              Dark
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+              <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+              Auto
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+        <!-- Galaxy Dark Theme -->
+        <div id="particles-js" class="particles-js"></div>
+        <div id="floating-images">
+          <img src="{% static 'encyclopedia/images/floating1.png' %}" class="floating-image" alt="Icon 1">
+          <img src="{% static 'encyclopedia/images/floating2.png' %}" class="floating-image" alt="Icon 2">
+          <img src="{% static 'encyclopedia/images/floating3.png' %}" class="floating-image" alt="Icon 3">
+          <img src="{% static 'encyclopedia/images/floating4.png' %}" class="floating-image" alt="Icon 4">
+          <img src="{% static 'encyclopedia/images/floating5.png' %}" class="floating-image" alt="Icon 5">
+          <img src="{% static 'encyclopedia/images/floating6.png' %}" class="floating-image" alt="Icon 6">
+          <img src="{% static 'encyclopedia/images/floating7.png' %}" class="floating-image" alt="Icon 7">
+          <img src="{% static 'encyclopedia/images/floating8.png' %}" class="floating-image" alt="Icon 8">
+          <img src="{% static 'encyclopedia/images/floating9.png' %}" class="floating-image" alt="Icon 9">
+          <img src="{% static 'encyclopedia/images/floating10.png' %}" class="floating-image" alt="Icon 10">
+          <img src="{% static 'encyclopedia/images/floating11.png' %}" class="floating-image" alt="Icon 11">
+          <img src="{% static 'encyclopedia/images/floating12.png' %}" class="floating-image" alt="Icon 12">
+        </div>
+        
+             
+        <!-- Navbar starts here -->
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">
+              <img src="{% static 'encyclopedia/images/logo.png' %}" alt="Brand Image">
+              <span>ScienceWiki</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle btn btn-bd-outline " href="{% url 'all_topics' %}" role="button" aria-expanded="false" aria-controls="dropdown-topics">
+                    All Topics
+                  </a>
+                  <ul class="dropdown-menu w-100" id="dropdown-topics">
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Physics</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Chemistry</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Biology</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Earth Science</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Astronomy</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Mathematics</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Computer Science</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Engineering</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle btn btn-bd-outline" href="{% url 'featured_content' %}" role="button" aria-expanded="false">
+                    Articles
+                  </a>
+                  <ul class="dropdown-menu w-100">
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Featured Posts</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Most Popular</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Science News</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle btn btn-bd-outline" href="#" role="button" aria-expanded="false">
+                    Resources
+                  </a>
+                  <ul class="dropdown-menu w-100">
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Tutorials</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Tools</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Materials</a></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">Experiments</a></li>
+                    <li><hr class="dropdown-divider btn-bd-outline"></li>
+                    <li><a class="dropdown-item btn-bd-outline" href="#">External Links</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn btn-bd-outline" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Language Translation -->
+              <div id="google_translate_element" class="nav-link btn btn-bd-outline flex"></div>
+              <script type="text/javascript">
+                function googleTranslateElementInit() {
+                  new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                  }, 'google_translate_element');
+                }
+              </script>
+                </li>                     
+              </ul>
+              <a href="{% url 'create' %}"><button class="btn btn-bd-primary ms-2 m-2" type="submit">Become a Contributor</button></a>
+            </div>
+          </div>
+        </nav>
+
+      <!-- Search form -->
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8">
+              <form class="d-flex" role="search" action="{% url 'search' %}" method="get">
+                  <input class="form-control me-2" type="search" name="q" placeholder="Search for a topic..." aria-label="Search">
+              </form>
+          </div>
+      </div>
+  </div>
+
+        <div class="container mt-5">
+          <div class="row">
+              <!-- Left Sidebar -->
+              <aside class="col-md-3 col-lg-2 d-none d-md-block">
+                <a href="{% url 'all_topics' %}" class="text-decoration-none">
+                  <h1 class="text-center fw-bold display-6">Explore</h1>
+              </a>                  
+                  <div>
+                      <a href="{% url 'index' %}" class="d-block mb-2 text-decoration-none">Home</a>
+                  </div>
+                  <div>
+                      <a href="{% url 'create' %}" class="d-block mb-2  text-decoration-none">Create New Page</a>
+                  </div>
+                  <div>
+                      <a href="{% url 'random_page' %}" class="d-block mb-2  text-decoration-none">Random Page</a>
+                  </div>
+
+                    <hr>
+                    <h1 class="text-center fw-bold display-6">All Topics</h1>
+                    <!-- Add the dynamic list of topics -->
+                    <ul class="list-unstyled">
+                      {% for entry_title in entry_titles %}
+                        <li>
+                          <a href="{% url 'entry' entry_title %}" class="text-decoration-none">{{ entry_title }}</a>
+                        </li>
+                      {% empty %}
+                        <li>No topics available.</li>
+                      {% endfor %}
+                    </ul>
+              
+                </aside>
+              
+              <!-- Main Content -->
+              <div class="col-md-9 col-lg-10">
+                {% block body %}
+                <!-- Page-specific content -->
+                {% endblock %}
+            </div>
+          </div>
+      </div>
+     <!-- Footer Section -->
+     <hr class="py-2">
+     <footer class="container py-2 small-footer">
+      <div>
+          <ul class="list-unstyled d-flex flex-wrap justify-content-center continuous-list">
+              <li><a href="#">Science Everwhere</a></li>
+              <li><a href="#">Contribute your Knowledge</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Our Mission</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+              <li><a href="#">Disclaimers</a></li>
+              <li><a href="#">Cosmic Dwellings</a></li>
+              <li><a href="#">Glossary</a></li>
+              <li><a href="#">Scientific Research</a></li>     
+              <li><a href="#">Our Universe</a></li>
+          </ul>
+      </div>
+      <hr class="py-2">
+      <div class="text-center">
+        &copy; ScienceWiki 2024 <br>
+          CS50W Project by <a href="https://melissadeleon.com/" target="_blank">Melissa De Leon</a></p>
+          Thank you <a target="_blank" href="https://icons8.com">Icons8</a> for all the icons of the site!</a>
+      </div>
+         
+  </footer>
+       
+         <!-- Bootstrap core JavaScript
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster. Make script.js work! -->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+         <script src="{% static 'encyclopedia/script.js' %}"></script>
+         <script src="{% static 'encyclopedia/color-mode.js' %}"></script>
+         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+         
+         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+         
+       </body>
+     </html>
+    </body>
+</html>

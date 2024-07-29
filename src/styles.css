@@ -1,0 +1,336 @@
+.logo-img {
+    width: 150px; 
+    height: auto; 
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+code {
+    white-space: pre;
+}
+
+
+textarea {
+    height: 90vh;
+    width: 80%;
+}
+
+
+.search {
+    width: 100%; 
+    font-size: 16px; 
+    line-height: 20px; 
+    border-radius: 20px; 
+    padding: 15px; 
+}
+
+
+/* CSS for color-mode */
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  }
+
+  .b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+  }
+
+  .bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
+
+  .btn-bd-primary {
+    --bd-green-bg: #009900;
+    --bd-green-rgb: 0, 204, 0;
+
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bd-green-bg);
+    --bs-btn-border-color: var(--bd-green-bg);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #034503; 
+    --bs-btn-hover-border-color: #009900; 
+    --bs-btn-focus-shadow-rgb: var(--bd-green-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #006600; 
+    --bs-btn-active-border-color: #006600;
+  }
+
+
+.bd-mode-toggle {
+    z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+}
+
+/* Custom primary outline button */
+.btn-bd-outline {
+  --bd-outline-border: #009900; 
+  --bd-outline-hover-bg: #00990036; 
+  --bd-outline-hover-border: #009900; 
+  --bd-outline-focus-shadow-rgb: 0, 0, 0; 
+  --bd-outline-active-bg: #e6e6e6; 
+  --bd-outline-active-border: #009900; 
+  --bd-outline-active-text: #009900; 
+}
+
+/* Apply the custom styles */
+.btn-bd-outline {
+  background-color: var(--bd-outline-bg);
+  border-color: var(--bd-outline-border);
+  color: var(--bd-outline-text);
+}
+
+.btn-bd-outline:hover {
+  background-color: var(--bd-outline-hover-bg);
+  border-color: var(--bd-outline-hover-border);
+  color: var(--bd-outline-hover-text);
+}
+
+.btn-bd-outline:focus, .btn-bd-outline.focus {
+  box-shadow: 0 0 0 0.2rem rgba(var(--bd-outline-focus-shadow-rgb), 0.5);
+}
+
+.btn-bd-outline:active, .btn-bd-outline.active {
+  background-color: var(--bd-outline-active-bg);
+  border-color: var(--bd-outline-active-border);
+  color: var(--bd-outline-active-text);
+}
+
+  /* Spacethemed background to all pages, should match the script */
+  .particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(to bottom, #004400, #006600, #008800, #00aaff, #00ccff);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+  .small-footer {
+    color: #6c757d;
+    padding: 20px 0;
+    font-size: 0.85rem;
+  }
+  
+  .small-footer a {
+    color: #6c757d;
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .small-footer a:hover {
+    color: #adb5bd;
+  }
+  
+  .small-footer small {
+    color: #6c757d;
+    font-size: 0.85rem;
+  }
+  
+  
+.continuous-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    
+  }
+  
+  .continuous-list li {
+    list-style: none;
+    margin: 0 10px 0 0;
+    position: relative;
+  }
+
+/* NavBar Styling */
+.navbar-nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.navbar {
+  position: relative;
+}
+
+.navbar-nav {
+  position: relative;
+}
+
+.navbar-brand {
+  padding-right: 20px;
+}
+
+.navbar-nav .nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+}
+
+.dropdown-menu .dropdown-item {
+  white-space: nowrap;
+}
+
+.navbar-nav .dropdown-item {
+  padding: 15px 20px;
+}
+
+.navbar-nav .dropdown-toggle {
+  padding-right: 0;
+}
+
+.navbar-nav .dropdown-toggle::after {
+  display: none; 
+}
+
+/* Effects for floating images */
+#floating-images {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; 
+}
+
+.floating-image {
+  position: absolute;
+  width: 50px; 
+  height: 50px;
+  will-change: transform;
+}
+
+@keyframes float1 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(50vw, -50vh); }
+  100% { transform: translate(-50vw, 50vh); }
+}
+
+@keyframes float2 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-50vw, 50vh); }
+  100% { transform: translate(50vw, -50vh); }
+}
+
+@keyframes float3 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-50vw, -50vh); }
+  100% { transform: translate(50vw, 50vh); }
+}
+
+@keyframes float4 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(50vw, 50vh); }
+  100% { transform: translate(-50vw, -50vh); }
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px; 
+  width: 20px; 
+  height: 20px;
+  pointer-events: none;
+}
+
+/* Adjust input padding to make space for the icon */
+.search-wrapper .form-control {
+  padding-left: 40px;
+}
+
+
+/* Responsive design */
+@media (max-width: 576px) {
+  .search-wrapper {
+    width: 100%; 
+  }
+
+  .search-input {
+    padding-left: 30px; 
+  }
+
+  .search-icon {
+    width: 16px;
+    height: 16px; 
+    left: 5px; 
+  }
+}
+
+.cc-window {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  background-color: #333; 
+  color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  bottom: 0; 
+  right: 0; 
+}
+
+/* Styling for the message */
+.cc-message {
+  margin-right: 10px; 
+  flex: 1; 
+}
+
+/* Styling for the button */
+.cc-btn {
+  background-color: #009900;
+  color: #fff;
+  font-weight: bold;
+  border: none; 
+  padding: 8px 20px; 
+  font-size: 14px; 
+  border-radius: .25rem; 
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.cc-btn:hover {
+  background-color: #007700; }
